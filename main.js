@@ -354,6 +354,26 @@
     }
   }
 
+  /* ─────────── MOBILE MENU ─────────── */
+  const hamburger = $('#navHamburger');
+  const mobileMenu = $('#mobileMenu');
+  if (hamburger && mobileMenu) {
+    const toggleMenu = (open) => {
+      document.body.classList.toggle('menu-open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+    };
+    hamburger.addEventListener('click', () => {
+      toggleMenu(!document.body.classList.contains('menu-open'));
+    });
+    $$('.mobile-links a, .mobile-cta').forEach((a) => {
+      a.addEventListener('click', () => toggleMenu(false));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') toggleMenu(false);
+    });
+  }
+
   /* ─────────── SMOOTH ANCHOR OFFSET ─────────── */
   $$('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
