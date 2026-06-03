@@ -1,1260 +1,371 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Harshita Vaghela — Full-Stack Developer</title>
+<meta name="description" content="Harshita Vaghela — Full-stack developer building AI-powered tools, ERP systems and real-time platforms." />
 
-<title>Harshita Vaghela — Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-:root{
-  --black:#0a0a0a;
-  --white:#f5f4f0;
-  --gray-1:#e8e6e1;
-  --gray-2:#b8b5ae;
-  --gray-3:#6e6b66;
-
-  --serif:'Instrument Serif', serif;
-  --sans:'DM Sans', sans-serif;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:var(--white);
-  color:var(--black);
-  font-family:var(--sans);
-  overflow-x:hidden;
-}
-
-/* NAV */
-
-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:1000;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  padding:1.5rem 3rem;
-
-  background:rgba(245,244,240,0.85);
-  backdrop-filter:blur(10px);
-
-  border-bottom:1px solid transparent;
-  transition:0.3s ease;
-}
-
-nav.scrolled{
-  border-color:var(--gray-1);
-}
-
-.nav-logo{
-  text-decoration:none;
-  color:var(--black);
-
-  font-family:var(--serif);
-  font-size:1.2rem;
-}
-
-.nav-links{
-  display:flex;
-  gap:2rem;
-  list-style:none;
-}
-
-.nav-links a{
-  text-decoration:none;
-  color:var(--gray-3);
-
-  font-size:0.78rem;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-
-  transition:0.2s ease;
-}
-
-.nav-links a:hover{
-  color:var(--black);
-}
-
-.nav-btn{
-  text-decoration:none;
-
-  border:1px solid var(--black);
-  border-radius:999px;
-
-  padding:0.8rem 1.4rem;
-
-  color:var(--black);
-
-  font-size:0.76rem;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-
-  transition:0.2s ease;
-}
-
-.nav-btn:hover{
-  background:var(--black);
-  color:var(--white);
-}
-
-/* HERO */
-
-#hero{
-  min-height:100vh;
-
-  display:flex;
-  align-items:center;
-
-  padding:8rem 3rem 4rem;
-
-  position:relative;
-  overflow:hidden;
-}
-
-.hero-grid{
-  width:100%;
-
-  display:grid;
-  grid-template-columns:1.1fr 0.9fr;
-  gap:4rem;
-  align-items:center;
-}
-
-.hero-left{
-  position:relative;
-  z-index:2;
-}
-
-.hero-tag{
-  font-size:0.72rem;
-  letter-spacing:0.16em;
-  text-transform:uppercase;
-  color:var(--gray-3);
-
-  margin-bottom:1.5rem;
-}
-
-.hero-name{
-  font-family:var(--serif);
-  font-size:clamp(4rem,10vw,8rem);
-
-  line-height:0.9;
-  letter-spacing:-0.06em;
-
-  margin-bottom:2rem;
-}
-
-.hero-name em{
-  color:var(--gray-3);
-  font-style:italic;
-}
-
-.hero-desc{
-  max-width:580px;
-
-  color:var(--gray-3);
-
-  font-size:1.05rem;
-  line-height:1.9;
-
-  margin-bottom:2.5rem;
-}
-
-.hero-actions{
-  display:flex;
-  gap:1rem;
-  margin-bottom:2.5rem;
-}
-
-.hero-btn{
-  text-decoration:none;
-
-  padding:1rem 1.5rem;
-
-  border-radius:999px;
-
-  font-size:0.76rem;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-
-  transition:0.25s ease;
-}
-
-.hero-btn.primary{
-  background:var(--black);
-  color:var(--white);
-}
-
-.hero-btn.primary:hover{
-  transform:translateY(-2px);
-}
-
-.hero-btn.secondary{
-  border:1px solid var(--gray-2);
-  color:var(--black);
-}
-
-.hero-btn.secondary:hover{
-  border-color:var(--black);
-}
-
-.hero-socials{
-  display:flex;
-  gap:2rem;
-}
-
-.hero-socials a{
-  text-decoration:none;
-
-  color:var(--gray-3);
-
-  font-size:0.78rem;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-
-  transition:0.2s ease;
-}
-
-.hero-socials a:hover{
-  color:var(--black);
-}
-
-.hero-right{
-  position:relative;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.hero-bg{
-  position:absolute;
-
-  font-family:var(--serif);
-
-  font-size:clamp(10rem,24vw,22rem);
-  line-height:1;
-
-  color:#ebe9e3;
-
-  letter-spacing:-0.08em;
-
-  user-select:none;
-}
-
-.hero-card{
-  position:relative;
-  z-index:2;
-
-  width:100%;
-  max-width:430px;
-
-  background:rgba(255,255,255,0.7);
-  backdrop-filter:blur(12px);
-
-  border:1px solid var(--gray-1);
-  border-radius:1.5rem;
-
-  padding:2rem;
-}
-
-.hero-card-label{
-  font-size:0.68rem;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-
-  color:var(--gray-3);
-
-  margin-bottom:1rem;
-}
-
-.hero-card-title{
-  font-family:var(--serif);
-
-  font-size:1.9rem;
-  line-height:1.2;
-  letter-spacing:-0.03em;
-
-  margin-bottom:1.5rem;
-}
-
-.hero-stack{
-  display:flex;
-  flex-wrap:wrap;
-  gap:0.6rem;
-}
-
-.hero-stack span{
-  padding:0.45rem 0.8rem;
-
-  background:var(--gray-1);
-  border-radius:999px;
-
-  font-size:0.7rem;
-  letter-spacing:0.06em;
-  text-transform:uppercase;
-
-  color:var(--gray-3);
-}
-
-/* SECTION BASE */
-
-section{
-  padding:7rem 3rem;
-}
-
-.section-label{
-  font-size:0.72rem;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-
-  color:var(--gray-2);
-
-  margin-bottom:3rem;
-}
-
-/* ABOUT */
-
-#about{
-  background:var(--black);
-  color:var(--white);
-}
-
-.about-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:4rem;
-}
-
-.about-title{
-  font-family:var(--serif);
-  font-size:clamp(2.5rem,5vw,4rem);
-  line-height:1.1;
-  letter-spacing:-0.03em;
-}
-
-.about-title em{
-  color:var(--gray-2);
-}
-
-.about-content p{
-  color:var(--gray-2);
-  line-height:1.9;
-  margin-bottom:1.5rem;
-}
-
-.about-stats{
-  margin-top:3rem;
-
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-
-  gap:2rem;
-}
-
-.stat h3{
-  font-family:var(--serif);
-  font-size:2.7rem;
-}
-
-.stat p{
-  font-size:0.74rem;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-
-  color:var(--gray-3);
-}
-
-/* EXPERIENCE */
-
-.exp-list{
-  display:flex;
-  flex-direction:column;
-}
-
-.exp-item{
-  padding:2.5rem 0;
-
-  border-bottom:1px solid var(--gray-1);
-
-  display:grid;
-  grid-template-columns:180px 1fr;
-  gap:3rem;
-}
-
-.exp-date{
-  color:var(--gray-3);
-  font-size:0.85rem;
-}
-
-.exp-role{
-  font-family:var(--serif);
-  font-size:1.7rem;
-
-  margin-bottom:0.4rem;
-}
-
-.exp-company{
-  font-size:0.8rem;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-
-  color:var(--gray-3);
-
-  margin-bottom:1rem;
-}
-
-.exp-content ul{
-  padding-left:1rem;
-}
-
-.exp-content li{
-  color:var(--gray-3);
-  margin-bottom:0.8rem;
-  line-height:1.7;
-}
-
-/* PROJECTS */
-
-.projects-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:1.5rem;
-}
-
-.project-card{
-  background:var(--black);
-  color:var(--white);
-
-  border-radius:1.5rem;
-
-  padding:2rem;
-
-  position:relative;
-
-  overflow:hidden;
-
-  transition:0.3s ease;
-}
-
-.project-card.light{
-  background:var(--gray-1);
-  color:var(--black);
-}
-
-.project-card:hover{
-  transform:translateY(-5px);
-}
-
-.project-tag{
-  font-size:0.7rem;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-
-  opacity:0.6;
-
-  margin-bottom:1rem;
-}
-
-.project-title{
-  font-family:var(--serif);
-
-  font-size:2rem;
-  line-height:1.1;
-
-  margin-bottom:1rem;
-}
-
-.project-desc{
-  line-height:1.8;
-  opacity:0.7;
-
-  margin-bottom:1.5rem;
-}
-
-.project-stack{
-  display:flex;
-  flex-wrap:wrap;
-  gap:0.5rem;
-
-  margin-bottom:2rem;
-}
-
-.project-stack span{
-  border:1px solid rgba(255,255,255,0.15);
-
-  padding:0.4rem 0.7rem;
-
-  border-radius:999px;
-
-  font-size:0.7rem;
-  letter-spacing:0.05em;
-  text-transform:uppercase;
-}
-
-.project-card.light .project-stack span{
-  border-color:rgba(0,0,0,0.1);
-}
-
-.project-links{
-  display:flex;
-  gap:1rem;
-}
-
-.project-links a{
-  text-decoration:none;
-
-  font-size:0.76rem;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-}
-
-.project-links .live{
-  color:var(--white);
-}
-
-.project-card.light .live{
-  color:var(--black);
-}
-
-.project-links .github{
-  opacity:0.6;
-}
-
-/* SKILLS */
-
-#skills{
-  background:var(--black);
-  color:var(--white);
-}
-
-.skills-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:2rem;
-}
-
-.skill-title{
-  font-size:0.7rem;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-
-  color:var(--gray-3);
-
-  margin-bottom:1rem;
-}
-
-.skill-list{
-  display:flex;
-  flex-direction:column;
-  gap:0.8rem;
-}
-
-.skill-list div{
-  border-bottom:1px solid #232323;
-  padding-bottom:0.7rem;
-
-  color:var(--gray-2);
-}
-
-/* CONTACT */
-
-#contact{
-  text-align:center;
-}
-
-.contact-label{
-  font-size:0.72rem;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-
-  color:var(--gray-2);
-
-  margin-bottom:1rem;
-}
-
-.contact-title{
-  font-family:var(--serif);
-  font-size:clamp(3rem,8vw,7rem);
-
-  line-height:1;
-  letter-spacing:-0.04em;
-
-  margin-bottom:2rem;
-}
-
-.contact-title em{
-  color:var(--gray-3);
-}
-
-.contact-mail{
-  text-decoration:none;
-
-  color:var(--black);
-
-  border-bottom:1px solid var(--gray-2);
-
-  padding-bottom:0.2rem;
-}
-
-/* FOOTER */
-
-footer{
-  background:var(--black);
-  color:var(--gray-3);
-
-  padding:2rem 3rem;
-
-  display:flex;
-  justify-content:space-between;
-
-  font-size:0.75rem;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-  nav{
-    padding:1.2rem 1.5rem;
-  }
-
-  .nav-links{
-    display:none;
-  }
-
-  section{
-    padding:5rem 1.5rem;
-  }
-
-  #hero{
-    padding:7rem 1.5rem 4rem;
-  }
-
-  .hero-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero-name{
-    font-size:4.8rem;
-  }
-
-  .about-grid{
-    grid-template-columns:1fr;
-  }
-
-  .projects-grid{
-    grid-template-columns:1fr;
-  }
-
-  .skills-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .exp-item{
-    grid-template-columns:1fr;
-    gap:1rem;
-  }
-
-  footer{
-    flex-direction:column;
-    gap:1rem;
-    text-align:center;
-  }
-
-}
-
-</style>
+<link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-<nav id="nav">
+<!-- ░░ SCROLL PROGRESS ░░ -->
+<div class="scroll-progress" id="scrollProgress"></div>
 
-  <a href="#" class="nav-logo">
-    Harshita Vaghela
+<!-- ░░ GRAIN OVERLAY ░░ -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ░░ CUSTOM CURSOR ░░ -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"><span class="cursor-label" id="cursorLabel"></span></div>
+
+<!-- ░░ NAV ░░ -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo" data-cursor="link">
+    <span class="logo-mark">HV</span>
+    <span class="logo-pulse"></span>
   </a>
 
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about" data-cursor="link"><span>About</span></a></li>
+    <li><a href="#work" data-cursor="link"><span>Work</span></a></li>
+    <li><a href="#experience" data-cursor="link"><span>Experience</span></a></li>
+    <li><a href="#skills" data-cursor="link"><span>Skills</span></a></li>
   </ul>
 
-  <a href="mailto:harshitavaghela.work@gmail.com" class="nav-btn">
-    Hire Me
+  <a href="#contact" class="nav-status" data-cursor="link">
+    <span class="status-dot"></span>
+    <span class="status-text">Available for work</span>
   </a>
-
 </nav>
 
-<section id="hero">
+<!-- ░░ HERO ░░ -->
+<header id="hero">
+  <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-glow" id="heroGlow" aria-hidden="true"></div>
 
-  <div class="hero-grid">
+  <div class="hero-inner">
+    <div class="hero-meta reveal">
+      <span class="meta-line"></span>
+      <span class="meta-text">Full-Stack Developer · CS '27 · Indore, India</span>
+    </div>
 
-    <div class="hero-left">
+    <h1 class="hero-name" id="heroName" aria-label="Harshita Vaghela">
+      <span class="line" data-word="HARSHITA"></span>
+      <span class="line outline" data-word="VAGHELA"></span>
+    </h1>
 
-      <div class="hero-tag">
-        FULL STACK DEVELOPER · CS '27 · INDORE, INDIA
-      </div>
-
-      <h1 class="hero-name">
-        Harshita<br>
-        <em>Vaghela.</em>
-      </h1>
-
-      <p class="hero-desc">
-        I build production-grade full-stack products —
-        from AI-powered tools to ERP systems and real-time IoT platforms.
+    <div class="hero-bottom">
+      <p class="hero-desc reveal">
+        I engineer production-grade systems — from AI-powered tools and
+        ERP platforms to real-time IoT — with an obsession for interface craft.
       </p>
 
+      <div class="terminal reveal" id="terminal" data-cursor="hold">
+        <div class="terminal-bar">
+          <span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>
+          <span class="terminal-title">harshita@dev — zsh</span>
+        </div>
+        <div class="terminal-body" id="terminalBody"></div>
+      </div>
+    </div>
+
+    <div class="hero-foot reveal">
       <div class="hero-actions">
-
-        <a href="#projects" class="hero-btn primary">
-          View Projects
+        <a href="#work" class="btn btn-primary" data-cursor="view">
+          <span>Selected Work</span>
+          <span class="btn-arrow">↓</span>
         </a>
-
-        <a href="mailto:harshitavaghela.work@gmail.com" class="hero-btn secondary">
-          Hire Me
+        <a href="mailto:harshitavaghela.work@gmail.com" class="btn btn-ghost" data-cursor="link">
+          <span>Get in touch</span>
         </a>
-
       </div>
-
       <div class="hero-socials">
-
-        <a href="https://github.com/harshita-that" target="_blank">
-          GitHub ↗
-        </a>
-
-        <a href="https://linkedin.com/in/harshitavaghela" target="_blank">
-          LinkedIn ↗
-        </a>
-
+        <a href="https://github.com/harshita-that" target="_blank" rel="noopener" data-cursor="link">GitHub ↗</a>
+        <a href="https://linkedin.com/in/harshitavaghela" target="_blank" rel="noopener" data-cursor="link">LinkedIn ↗</a>
       </div>
-
     </div>
-
-    <div class="hero-right">
-
-      <div class="hero-card">
-
-        <div class="hero-card-label">
-          CURRENT FOCUS
-        </div>
-
-        <div class="hero-card-title">
-          Building scalable AI + full-stack systems with strong UI engineering.
-        </div>
-
-        <div class="hero-stack">
-          <span>Next.js</span>
-          <span>TypeScript</span>
-          <span>PostgreSQL</span>
-          <span>Node.js</span>
-          <span>AI APIs</span>
-        </div>
-
-      </div>
-
-      <div class="hero-bg">
-        HV
-      </div>
-
-    </div>
-
   </div>
 
+  <div class="scroll-cue" aria-hidden="true">
+    <span>Scroll</span>
+    <span class="scroll-track"><span class="scroll-thumb"></span></span>
+  </div>
+</header>
+
+<!-- ░░ MARQUEE ░░ -->
+<section class="marquee-wrap" aria-hidden="true">
+  <div class="marquee" id="marquee">
+    <div class="marquee-row" data-dir="1"></div>
+    <div class="marquee-row alt" data-dir="-1"></div>
+  </div>
 </section>
 
+<!-- ░░ ABOUT ░░ -->
 <section id="about">
-
-  <div class="section-label">
-    About
+  <div class="section-head">
+    <span class="section-index">01</span>
+    <span class="section-tag">About</span>
   </div>
 
   <div class="about-grid">
+    <h2 class="about-statement" data-split>
+      I build products that are real, scalable and visually deliberate —
+      bridging the gap between robust backends and interfaces people remember.
+    </h2>
 
-    <div>
-      <h2 class="about-title">
-        Building products that<br>
-        actually <em>matter.</em>
-      </h2>
-
+    <div class="about-side">
+      <p class="about-p reveal">
+        I'm a full-stack developer who's shipped ERP systems, AI-powered tools,
+        IoT platforms and production web apps. I care about the whole pipeline —
+        data models, APIs, and the last 5% of motion polish that makes software feel alive.
+      </p>
       <div class="about-stats">
-
-        <div class="stat">
-          <h3>6+</h3>
-          <p>Projects</p>
+        <div class="stat reveal">
+          <h3 class="stat-num" data-count="6" data-suffix="+">0</h3>
+          <p>Shipped projects</p>
         </div>
-
-        <div class="stat">
-          <h3>2</h3>
+        <div class="stat reveal">
+          <h3 class="stat-num" data-count="2">0</h3>
           <p>Internships</p>
         </div>
-
-        <div class="stat">
-          <h3>'27</h3>
+        <div class="stat reveal">
+          <h3 class="stat-num">'27</h3>
           <p>Graduating</p>
         </div>
-
       </div>
     </div>
-
-    <div class="about-content">
-
-      <p>
-        I'm a full-stack developer focused on building products that are real, scalable, and visually polished.
-      </p>
-
-      <p>
-        I've worked on ERP systems, AI-powered tools, IoT platforms, and production-ready web apps using modern technologies.
-      </p>
-
-      <p>
-        My core stack includes Next.js, TypeScript, React, PostgreSQL, MongoDB, and Node.js.
-      </p>
-
-    </div>
-
   </div>
-
 </section>
 
-```html
-<!-- EXPERIENCE -->
+<!-- ░░ NOW / CURRENTLY BUILDING ░░ -->
+<section id="now">
+  <div class="section-head">
+    <span class="section-index">02</span>
+    <span class="section-tag">Now</span>
+  </div>
 
+  <div class="now-grid">
+    <div class="now-lead reveal">
+      <span class="now-live"><span class="live-dot"></span>Currently building</span>
+      <h2 class="now-title">Scalable AI&nbsp;+ full-stack systems with serious UI engineering.</h2>
+    </div>
+    <ul class="now-list">
+      <li class="now-item reveal">
+        <span class="now-arrow">→</span>
+        <span class="now-body"><strong>ERP &amp; LMS platforms</strong> — course systems, assessments and admin dashboards at NexisparkX.</span>
+      </li>
+      <li class="now-item reveal">
+        <span class="now-arrow">→</span>
+        <span class="now-body"><strong>Real-time IoT</strong> — ESP32 sensor pipelines feeding live React dashboards.</span>
+      </li>
+      <li class="now-item reveal">
+        <span class="now-arrow">→</span>
+        <span class="now-body"><strong>AI developer tooling</strong> — structured code-review agents and prediction systems.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ░░ EXPERIENCE ░░ -->
 <section id="experience">
-
-  <div class="section-label">
-    Experience
+  <div class="section-head">
+    <span class="section-index">03</span>
+    <span class="section-tag">Experience</span>
   </div>
 
   <div class="exp-list">
-
-    <!-- EXPERIENCE 1 -->
-
-    <div class="exp-item">
-
-      <div class="exp-date">
-        Mar 2026 — May 2026
-      </div>
-
+    <article class="exp-item reveal" data-cursor="link">
+      <div class="exp-rail"><span class="exp-node"></span></div>
+      <div class="exp-date">Mar 2026 — May 2026</div>
       <div class="exp-content">
-
-        <div class="exp-role">
-          Full Stack Developer Intern
-        </div>
-
-        <div class="exp-company">
-          NexisparkX Technologies · On-site
-        </div>
-
+        <h3 class="exp-role">Full-Stack Developer Intern</h3>
+        <div class="exp-company">NexisparkX Technologies · On-site</div>
         <ul>
-
-          <li>
-            Built ERP systems for schools and coaching institutes using Next.js, Node.js, and PostgreSQL.
-          </li>
-
-          <li>
-            Developed LMS modules including course systems, progress tracking, assessments, and admin dashboards.
-          </li>
-
-          <li>
-            Built Project Pramaan — a real-time IoT water monitoring platform using ESP32 and React.
-          </li>
-
+          <li>Built ERP systems for schools and coaching institutes with Next.js, Node.js and PostgreSQL.</li>
+          <li>Developed LMS modules — course systems, progress tracking, assessments and admin dashboards.</li>
+          <li>Shipped Project Pramaan, a real-time IoT water-monitoring platform using ESP32 and React.</li>
         </ul>
-
       </div>
+    </article>
 
-    </div>
-
-    <!-- EXPERIENCE 2 -->
-
-    <div class="exp-item">
-
-      <div class="exp-date">
-        Dec 2024 — Jan 2025
-      </div>
-
+    <article class="exp-item reveal" data-cursor="link">
+      <div class="exp-rail"><span class="exp-node"></span></div>
+      <div class="exp-date">Dec 2024 — Jan 2025</div>
       <div class="exp-content">
-
-        <div class="exp-role">
-          Content Writer Intern
-        </div>
-
-        <div class="exp-company">
-          Kshitiksha Foundation · Remote
-        </div>
-
+        <h3 class="exp-role">Content Writer Intern</h3>
+        <div class="exp-company">Kshitiksha Foundation · Remote</div>
         <ul>
-
-          <li>
-            Created digital content and campaign materials for social media and outreach initiatives.
-          </li>
-
-          <li>
-            Collaborated with design and marketing teams to improve audience engagement and brand consistency.
-          </li>
-
-          <li>
-            Assisted in content strategy planning and storytelling for community-focused campaigns.
-          </li>
-
+          <li>Created digital content and campaign materials for social and outreach initiatives.</li>
+          <li>Worked with design and marketing teams to lift engagement and brand consistency.</li>
+          <li>Supported content strategy and storytelling for community-focused campaigns.</li>
         </ul>
-
       </div>
+    </article>
 
-    </div>
-
-   <!-- EXPERIENCE 3 --> <div class="exp-item"> <div class="exp-date"> August 2024 — September 2024 </div> <div class="exp-content"> <div class="exp-role"> Volunteer </div> <div class="exp-company"> IAF · India </div> <ul> <li> Supported community outreach programs and technical workshops contributing to defense awareness initiatives. </li> <li> Assisted in organizing events and coordinating logistics for IAF engagement activities. </li> <li> Worked collaboratively in team-based operational environments while managing responsibilities efficiently. </li> </ul> </div> </div> </div> </section>
-
-<section id="projects">
-
-  <div class="section-label">
-    Projects
+    <article class="exp-item reveal" data-cursor="link">
+      <div class="exp-rail"><span class="exp-node"></span></div>
+      <div class="exp-date">Aug 2024 — Sep 2024</div>
+      <div class="exp-content">
+        <h3 class="exp-role">Volunteer</h3>
+        <div class="exp-company">Indian Air Force · India</div>
+        <ul>
+          <li>Supported community outreach programs and technical workshops.</li>
+          <li>Helped organize events and coordinate logistics for engagement activities.</li>
+          <li>Operated in team-based environments while managing responsibilities efficiently.</li>
+        </ul>
+      </div>
+    </article>
   </div>
-
-  <div class="projects-grid">
-
-    <div class="project-card">
-
-      <div class="project-tag">
-        AI · HEALTH TECH
-      </div>
-
-      <div class="project-title">
-        PetPulse
-      </div>
-
-      <div class="project-desc">
-        AI-assisted pet health monitoring platform with cinematic UI, AI scan demos, interactive animations, and immersive landing page engineering.
-      </div>
-
-      <div class="project-stack">
-        <span>Next.js</span>
-        <span>TypeScript</span>
-        <span>Framer Motion</span>
-        <span>R3F</span>
-        <span>GSAP</span>
-      </div>
-
-      <div class="project-links">
-        <a href="https://petpulse-black.vercel.app/" class="live" target="_blank">
-          Live ↗
-        </a>
-
-        <a href="https://github.com/harshita-that/petpulse" class="github" target="_blank">
-          GitHub
-        </a>
-      </div>
-
-    </div>
-
-    <div class="project-card light">
-
-      <div class="project-tag">
-        SAFETY · B2B
-      </div>
-
-      <div class="project-title">
-        HardHire
-      </div>
-
-      <div class="project-desc">
-        Contractor safety intelligence platform that analyzes OSHA violation data and generates contractor grading benchmarks.
-      </div>
-
-      <div class="project-stack">
-        <span>Next.js</span>
-        <span>TypeScript</span>
-        <span>PostgreSQL</span>
-        <span>Drizzle ORM</span>
-        <span>Better Auth</span>
-      </div>
-
-      <div class="project-links">
-        <a href="https://hardhire-app.vercel.app/" class="live" target="_blank">
-          Live ↗
-        </a>
-
-        <a href="https://github.com/harshita-that/hardhire-app" class="github" target="_blank">
-          GitHub
-        </a>
-      </div>
-
-    </div>
-
-    <div class="project-card">
-
-      <div class="project-tag">
-        AI · FINTECH
-      </div>
-
-      <div class="project-title">
-        BidSmart
-      </div>
-
-      <div class="project-desc">
-        AI-powered auction prediction system for collectors and resellers with real-time pricing insights and bid strategy generation.
-      </div>
-
-      <div class="project-stack">
-        <span>Next.js</span>
-        <span>TypeScript</span>
-        <span>Tailwind</span>
-        <span>AI APIs</span>
-      </div>
-
-      <div class="project-links">
-        <a href="https://bidsmart-topaz.vercel.app" class="live" target="_blank">
-          Live ↗
-        </a>
-
-        <a href="https://github.com/harshita-that/bidsmart" class="github" target="_blank">
-          GitHub
-        </a>
-      </div>
-
-    </div>
-
-    <div class="project-card light">
-
-      <div class="project-tag">
-        IoT · REAL-TIME
-      </div>
-
-      <div class="project-title">
-        Pramaan
-      </div>
-
-      <div class="project-desc">
-        Smart water quality monitoring system using ESP32 sensors with real-time dashboards and 95% sensor accuracy optimization.
-      </div>
-
-      <div class="project-stack">
-        <span>ESP32</span>
-        <span>React</span>
-        <span>Node.js</span>
-        <span>MongoDB</span>
-      </div>
-
-      <div class="project-links">
-        <a href="https://production-pramaan.vercel.app/" class="live" target="_blank">
-          Live ↗
-        </a>
-
-        <a href="#" class="github">
-          GitHub
-        </a>
-      </div>
-
-    </div>
-
-    <div class="project-card">
-
-      <div class="project-tag">
-        E-COMMERCE · FULL STACK
-      </div>
-
-      <div class="project-title">
-        Jewelry Platform
-      </div>
-
-      <div class="project-desc">
-        Full-stack jewelry e-commerce platform with dynamic gold pricing engine and automated real-time product price calculations.
-      </div>
-
-      <div class="project-stack">
-        <span>MERN</span>
-        <span>PostgreSQL</span>
-        <span>REST APIs</span>
-        <span>Next.js</span>
-      </div>
-
-      <div class="project-links">
-        <a href="https://shreeva-site.vercel.app/" class="live" target="_blank">
-          Live ↗
-        </a>
-
-        <a href="#" class="github">
-          GitHub
-        </a>
-      </div>
-
-    </div>
-
-    <div class="project-card light">
-
-      <div class="project-tag">
-        AI · DEVELOPER TOOLS
-      </div>
-
-      <div class="project-title">
-        AI PR Reviewer
-      </div>
-
-      <div class="project-desc">
-        AI-powered GitHub PR review assistant generating structured code quality feedback with automated developer workflows.
-      </div>
-
-      <div class="project-stack">
-        <span>Next.js</span>
-        <span>Node.js</span>
-        <span>OpenAI API</span>
-        <span>TypeScript</span>
-      </div>
-
-      <div class="project-links">
-        <a href="https://ai-pr-reviewer-coral.vercel.app/" class="live" target="_blank">
-          Live ↗
-        </a>
-
-        <a href="#" class="github">
-          GitHub
-        </a>
-      </div>
-
-    </div>
-
-  </div>
-
 </section>
 
-<section id="skills">
+<!-- ░░ WORK / PROJECTS ░░ -->
+<section id="work">
+  <div class="section-head">
+    <span class="section-index">04</span>
+    <span class="section-tag">Selected Work</span>
+    <span class="section-count">06 projects</span>
+  </div>
 
-  <div class="section-label">
-    Skills
+  <div class="work-list" id="workList">
+    <a class="work-row" href="https://petpulse-black.vercel.app/" target="_blank" rel="noopener" data-cursor="view"
+       data-index="01" data-preview="PetPulse" data-hue="135">
+      <span class="work-no">01</span>
+      <span class="work-name">PetPulse</span>
+      <span class="work-cat">AI · Health Tech</span>
+      <span class="work-stack">Next.js · R3F · GSAP</span>
+      <span class="work-go">↗</span>
+    </a>
+
+    <a class="work-row" href="https://hardhire-app.vercel.app/" target="_blank" rel="noopener" data-cursor="view"
+       data-index="02" data-preview="HardHire" data-hue="205">
+      <span class="work-no">02</span>
+      <span class="work-name">HardHire</span>
+      <span class="work-cat">Safety · B2B</span>
+      <span class="work-stack">Next.js · PostgreSQL · Drizzle</span>
+      <span class="work-go">↗</span>
+    </a>
+
+    <a class="work-row" href="https://bidsmart-topaz.vercel.app" target="_blank" rel="noopener" data-cursor="view"
+       data-index="03" data-preview="BidSmart" data-hue="285">
+      <span class="work-no">03</span>
+      <span class="work-name">BidSmart</span>
+      <span class="work-cat">AI · Fintech</span>
+      <span class="work-stack">Next.js · Tailwind · AI APIs</span>
+      <span class="work-go">↗</span>
+    </a>
+
+    <a class="work-row" href="https://production-pramaan.vercel.app/" target="_blank" rel="noopener" data-cursor="view"
+       data-index="04" data-preview="Pramaan" data-hue="45">
+      <span class="work-no">04</span>
+      <span class="work-name">Pramaan</span>
+      <span class="work-cat">IoT · Real-time</span>
+      <span class="work-stack">ESP32 · React · MongoDB</span>
+      <span class="work-go">↗</span>
+    </a>
+
+    <a class="work-row" href="https://shreeva-site.vercel.app/" target="_blank" rel="noopener" data-cursor="view"
+       data-index="05" data-preview="Shreeva" data-hue="25">
+      <span class="work-no">05</span>
+      <span class="work-name">Jewelry Platform</span>
+      <span class="work-cat">E-commerce · Full-Stack</span>
+      <span class="work-stack">MERN · PostgreSQL · REST</span>
+      <span class="work-go">↗</span>
+    </a>
+
+    <a class="work-row" href="https://ai-pr-reviewer-coral.vercel.app/" target="_blank" rel="noopener" data-cursor="view"
+       data-index="06" data-preview="PR Reviewer" data-hue="170">
+      <span class="work-no">06</span>
+      <span class="work-name">AI PR Reviewer</span>
+      <span class="work-cat">AI · Dev Tools</span>
+      <span class="work-stack">Next.js · OpenAI API · Node</span>
+      <span class="work-go">↗</span>
+    </a>
+  </div>
+
+  <div class="work-preview" id="workPreview" aria-hidden="true">
+    <div class="preview-inner" id="previewInner">
+      <span class="preview-label" id="previewLabel"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ SKILLS ░░ -->
+<section id="skills">
+  <div class="section-head">
+    <span class="section-index">05</span>
+    <span class="section-tag">Stack</span>
   </div>
 
   <div class="skills-grid">
-
-    <div>
-
-      <div class="skill-title">
-        Languages
-      </div>
-
+    <div class="skill-col reveal">
+      <div class="skill-title"><span class="skill-k">L1</span>Languages</div>
       <div class="skill-list">
-        <div>JavaScript</div>
-        <div>TypeScript</div>
-        <div>Python</div>
-        <div>SQL</div>
+        <div data-cursor="link">JavaScript</div>
+        <div data-cursor="link">TypeScript</div>
+        <div data-cursor="link">Python</div>
+        <div data-cursor="link">SQL</div>
       </div>
-
     </div>
-
-    <div>
-
-      <div class="skill-title">
-        Frontend
-      </div>
-
+    <div class="skill-col reveal">
+      <div class="skill-title"><span class="skill-k">L2</span>Frontend</div>
       <div class="skill-list">
-        <div>Next.js</div>
-        <div>React.js</div>
-        <div>Tailwind CSS</div>
-        <div>Framer Motion</div>
+        <div data-cursor="link">Next.js</div>
+        <div data-cursor="link">React.js</div>
+        <div data-cursor="link">Tailwind CSS</div>
+        <div data-cursor="link">Framer Motion</div>
       </div>
-
     </div>
-
-    <div>
-
-      <div class="skill-title">
-        Backend
-      </div>
-
+    <div class="skill-col reveal">
+      <div class="skill-title"><span class="skill-k">L3</span>Backend</div>
       <div class="skill-list">
-        <div>Node.js</div>
-        <div>Express.js</div>
-        <div>PostgreSQL</div>
-        <div>MongoDB</div>
+        <div data-cursor="link">Node.js</div>
+        <div data-cursor="link">Express.js</div>
+        <div data-cursor="link">PostgreSQL</div>
+        <div data-cursor="link">MongoDB</div>
       </div>
-
     </div>
-
-    <div>
-
-      <div class="skill-title">
-        Tools
-      </div>
-
+    <div class="skill-col reveal">
+      <div class="skill-title"><span class="skill-k">L4</span>Tools</div>
       <div class="skill-list">
-        <div>Git</div>
-        <div>GitHub</div>
-        <div>Vercel</div>
-        <div>Render</div>
+        <div data-cursor="link">Git</div>
+        <div data-cursor="link">GitHub</div>
+        <div data-cursor="link">Vercel</div>
+        <div data-cursor="link">Render</div>
       </div>
-
     </div>
-
   </div>
-
 </section>
 
+<!-- ░░ CONTACT ░░ -->
 <section id="contact">
-
-  <div class="contact-label">
-    LET'S WORK TOGETHER
-  </div>
-
-  <h2 class="contact-title">
-    Open to<br>
-    <em>opportunities.</em>
-  </h2>
-
-  <a href="mailto:harshitavaghela.work@gmail.com" class="contact-mail">
-    harshitavaghela.work@gmail.com
+  <div class="contact-glow" aria-hidden="true"></div>
+  <span class="contact-label reveal">Let's work together</span>
+  <a href="mailto:harshitavaghela.work@gmail.com" class="contact-headline" data-cursor="mail">
+    <span class="line" data-word="OPEN TO"></span>
+    <span class="line accent" data-word="BUILDING."></span>
   </a>
+  <a href="mailto:harshitavaghela.work@gmail.com" class="contact-mail" data-cursor="mail">harshitavaghela.work@gmail.com</a>
 
+  <div class="contact-socials reveal">
+    <a href="https://github.com/harshita-that" target="_blank" rel="noopener" data-cursor="link">GitHub</a>
+    <a href="https://linkedin.com/in/harshitavaghela" target="_blank" rel="noopener" data-cursor="link">LinkedIn</a>
+    <a href="mailto:harshitavaghela.work@gmail.com" data-cursor="link">Email</a>
+  </div>
 </section>
 
 <footer>
-
-  <div>
-    © 2026 Harshita Vaghela
-  </div>
-
-  <div>
-    Built with intention.
-  </div>
-
+  <div class="foot-l">© 2026 Harshita Vaghela</div>
+  <div class="foot-c">Indore, India · IST</div>
+  <div class="foot-r">Designed &amp; built with intention</div>
 </footer>
 
-<script>
-
-const nav = document.getElementById('nav');
-
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 20);
-});
-
-</script>
-
+<script src="main.js"></script>
 </body>
 </html>
-```
